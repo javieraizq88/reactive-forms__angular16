@@ -1,0 +1,30 @@
+<h1>Páginas</h1>
+<hr>
+
+<h2 class="mt-3">Reactivo</h2>
+
+<div class="d-grid gap-2 col-10 mx-auto">
+    <button 
+        class="btn btn-light" 
+        type="button" 
+        *ngFor="let item of reactiveMenu" 
+        [routerLink]="[item.route]"
+        routerLinkActive="active"
+    >
+        {{item.title}}
+    </button>
+</div>
+
+<h2 class="mt-3">Validaciones</h2>
+
+<div class="d-grid gap-2 col-10 mx-auto">
+    <button 
+        class="btn btn-light" 
+        type="button" 
+        *ngFor="let item of authMenu" 
+        [routerLink]="[item.route]"
+        routerLinkActive="active"
+    >
+        {{item.title}}
+    </button>
+</div>
