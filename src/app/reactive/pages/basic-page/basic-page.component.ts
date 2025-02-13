@@ -37,17 +37,16 @@ export class BasicPageComponent implements OnInit {
     if (!this.myForm.controls[field]) return null;
 
     const errors = this.myForm.controls[field].errors || {};
-
+    
+    // crea un arreglo con los errores segun el key de cada input
     for (const key of Object.keys(errors)) {
       switch (key) {
         case 'required':
           return 'Este campo es requerido';
-
         case 'minlength':
           return `Mínimo ${errors['minlength'].requiredLength} caracteres.`;
       }
     }
-
     return null;
   }
 
