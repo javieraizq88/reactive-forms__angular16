@@ -36,13 +36,9 @@ export class DynamicPageComponent {
         && formArray.controls[index].touched;
   }
 
-
   getFieldError( field: string ): string | null {
-
     if ( !this.myForm.controls[field] ) return null;
-
     const errors = this.myForm.controls[field].errors || {};
-
     for (const key of Object.keys(errors) ) {
       switch( key ) {
         case 'required':
@@ -52,38 +48,31 @@ export class DynamicPageComponent {
           return `Mínimo ${ errors['minlength'].requiredLength } caracters.`;
       }
     }
-
     return null;
   }
 
-  onAddToFavorites():void {
-
+  onAddToFavorites (): void {
     if ( this.newFavorite.invalid ) return;
     const newGame = this.newFavorite.value;
 
     this.favoriteGames.push(
       this.fb.control( newGame, Validators.required )
     );
-
     this.newFavorite.reset();
-
   }
-
 
   onDeleteFavorite( index:number ):void {
     this.favoriteGames.removeAt(index);
   }
 
   onSubmit():void {
-
     if ( this.myForm.invalid ) {
       this.myForm.markAllAsTouched();
       return;
     }
 
-    console.log(this.myForm.value);
-    // Clear the favoriteGames array without resetting the entire form
-    (this.myForm.get('favoriteGames') as FormArray).clear(); 
+    console.log(this.myForm.value); 
+    (this.myForm.get('favoriteGames') as FormArray).clear(); // borra favoriteGames array sin resetear resetting el formulario entero
     // this.myForm.reset(); // Uncomment this line to reset the entire form
 
   }

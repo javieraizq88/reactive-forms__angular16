@@ -1,14 +1,14 @@
 <h1>Reactivos: Dinámicos</h1>
 <hr>
 
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()"  autocomplete="off">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" autocomplete="off">
     <!-- Nombre -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Nombre</label>
         <div class="col-sm-9">
             <input class="form-control"
                     formControlName="name"
-                   placeholder="Nombre de la persona">
+                    placeholder="Nombre de la persona">
             <span *ngIf="isValidField('name')" class="form-text text-danger">
                 {{ getFieldError('name') }}
             </span>
@@ -19,7 +19,6 @@
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Agregar</label>
         <div class="col-sm-9">
-
             <div class="input-group">
                 <input class="form-control"
                        [formControl]="newFavorite"
