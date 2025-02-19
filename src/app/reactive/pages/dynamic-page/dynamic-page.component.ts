@@ -58,10 +58,10 @@ export class DynamicPageComponent {
     this.favoriteGames.push(
       this.fb.control( newGame, Validators.required )
     );
-    this.newFavorite.reset();
+    this.newFavorite.reset(); // resetea el input a su estado inicial
   }
 
-  onDeleteFavorite( index:number ):void {
+  onDeleteFavorite( index: number ): void {
     this.favoriteGames.removeAt(index);
   }
 
@@ -72,7 +72,7 @@ export class DynamicPageComponent {
     }
 
     console.log(this.myForm.value); 
-    (this.myForm.get('favoriteGames') as FormArray).clear(); // borra favoriteGames array sin resetear resetting el formulario entero
+    (this.myForm.get('favoriteGames') as FormArray).clear(); // borra favoriteGames array sin resetear el formulario entero
     // this.myForm.reset(); // Uncomment this line to reset the entire form
 
   }
